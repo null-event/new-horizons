@@ -1,4 +1,4 @@
-# Recon & ASM Multi-Agent System Configuration
+# New Horizons Multi-Agent System Configuration
 
 llm:
   default_provider: "anthropic"
@@ -40,7 +40,7 @@ llm:
 
 # Scanning configuration
 scanning:
-  docker_image: "recon-asm-tools:latest"
+  docker_image: "new-horizons-tools:latest"
   docker_timeout: 300
   max_subdomains_to_scan: 50
   max_nmap_targets: 25

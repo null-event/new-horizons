@@ -16,7 +16,7 @@ class DockerToolRunner:
     def __init__(self, image: str | None = None):
         self.client = docker.from_env()
         scan_config = get_scanning_config()
-        self.image = image or scan_config.get("docker_image", "recon-asm-tools:latest")
+        self.image = image or scan_config.get("docker_image", "new-horizons-tools:latest")
         self.default_timeout = scan_config.get("docker_timeout", 300)
         self._ensure_image_exists()
 

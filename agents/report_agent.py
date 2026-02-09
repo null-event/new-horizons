@@ -99,13 +99,13 @@ def _generate_markdown_report(state: dict, report_json: dict) -> str:
         "errors": report_json["errors"],
     }
 
-    prompt = f"""Generate a professional reconnaissance and attack surface management report based on these findings:
+    prompt = f"""Generate a professional New Horizons reconnaissance report based on these findings:
 
 {json.dumps(findings_data, indent=2, default=str)}
 
 Structure the report as follows:
 
-# Recon & ASM Report: {state['target']}
+# New Horizons Report: {state['target']}
 
 ## Executive Summary
 Brief overview of findings, overall security posture, and risk level.

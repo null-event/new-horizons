@@ -31,7 +31,7 @@ def _extract_json_from_content(content: Any) -> dict | None:
 
 def create_coordinator(checkpointer=None):
     """
-    Create the multi-agent recon & ASM coordinator.
+    Create the New Horizons multi-agent coordinator.
 
     Supervisor orchestrates specialized agents through the pipeline:
     recon → shodan → nmap → fingerprint → nuclei → report

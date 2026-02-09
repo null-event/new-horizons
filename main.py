@@ -21,7 +21,7 @@ load_dotenv()
 
 def run_recon(target: str, use_checkpointing: bool = False) -> tuple[dict, str]:
     """
-    Run a complete recon & ASM investigation on a target domain.
+    Run a complete New Horizons investigation on a target domain.
 
     Args:
         target: Domain to investigate (e.g., "example.com")
@@ -58,7 +58,7 @@ def run_recon(target: str, use_checkpointing: bool = False) -> tuple[dict, str]:
     print(
         f"""
 +================================================================+
-|           Recon & ASM Multi-Agent Investigation                |
+|           New Horizons Multi-Agent Investigation               |
 +================================================================+
 |  Target: {target:<54}|
 |  Phases: Recon → Shodan → Nmap → Fingerprint → Nuclei         |

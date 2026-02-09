@@ -4,7 +4,7 @@ from langgraph.graph.message import add_messages
 
 
 class ReconState(TypedDict):
-    """Shared state for the recon & ASM multi-agent system."""
+    """Shared state for the New Horizons multi-agent system."""
 
     # Target
     target: str

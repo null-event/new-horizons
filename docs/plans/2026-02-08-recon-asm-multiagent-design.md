@@ -1,4 +1,4 @@
-# Recon & ASM Multi-Agent System Design
+# New Horizons Multi-Agent System Design
 
 ## Overview
 
