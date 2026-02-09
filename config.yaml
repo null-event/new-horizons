@@ -1,0 +1,50 @@
+# Recon & ASM Multi-Agent System Configuration
+
+llm:
+  default_provider: "anthropic"
+  default_model: "claude-sonnet-4-5-20250929"
+
+  agents:
+    coordinator:
+      provider: "anthropic"
+      model: "claude-sonnet-4-5-20250929"
+    recon_agent:
+      provider: "anthropic"
+      model: "claude-haiku-4-5-20251001"
+    shodan_agent:
+      provider: "anthropic"
+      model: "claude-haiku-4-5-20251001"
+    nmap_agent:
+      provider: "anthropic"
+      model: "claude-haiku-4-5-20251001"
+    fingerprint_agent:
+      provider: "anthropic"
+      model: "claude-haiku-4-5-20251001"
+    nuclei_agent:
+      provider: "anthropic"
+      model: "claude-sonnet-4-5-20250929"
+    report_agent:
+      provider: "anthropic"
+      model: "claude-sonnet-4-5-20250929"
+
+  providers:
+    anthropic:
+      api_key: "${ANTHROPIC_API_KEY}"
+    openai:
+      api_key: "${OPENAI_API_KEY}"
+    deepseek:
+      api_key: "${DEEPSEEK_API_KEY}"
+      base_url: "https://api.deepseek.com"
+    ollama:
+      base_url: "http://localhost:11434"
+
+# Scanning configuration
+scanning:
+  docker_image: "recon-asm-tools:latest"
+  docker_timeout: 300
+  max_subdomains_to_scan: 50
+  max_nmap_targets: 25
+  nmap_ports: "--top-ports 1000"
+  nmap_flags: "-sV -sC -T4"
+  nuclei_severity: "info,low,medium,high,critical"
+  nuclei_rate_limit: 150
