@@ -95,7 +95,7 @@ new-horizons/
 ### 1. Clone and Enter the Repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/null-event/new-horizons.git
 cd new-horizons
 ```
 
@@ -110,7 +110,7 @@ docker build -t new-horizons-tools:latest -f docker/Dockerfile.tools .
 ### 3. Install Python Dependencies
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
