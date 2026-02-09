@@ -67,7 +67,7 @@ def shodan_host_lookup(ip: str) -> ShodanHostResult:
             ip=ip,
             hostnames=result.get("hostnames", []),
             ports=result.get("ports", []),
-            vulns=list(result.get("vulns", {}).keys()),
+            vulns=list(result.get("vulns", [])),
             os=result.get("os"),
             services=services,
         )
