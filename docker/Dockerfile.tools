@@ -44,7 +44,7 @@ RUN ARCH=$(dpkg --print-architecture) && \
 # Install Nuclei
 RUN ARCH=$(dpkg --print-architecture) && \
     curl -sSL "https://github.com/projectdiscovery/nuclei/releases/download/v3.3.7/nuclei_3.3.7_linux_${ARCH}.zip" -o /tmp/nuclei.zip && \
-    unzip /tmp/nuclei.zip -d /usr/local/bin/ && \
+    unzip /tmp/nuclei.zip nuclei -d /usr/local/bin/ && \
     chmod +x /usr/local/bin/nuclei && \
     rm /tmp/nuclei.zip
 
