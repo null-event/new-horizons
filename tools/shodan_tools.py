@@ -42,7 +42,7 @@ def shodan_host_lookup(ip: str) -> ShodanHostResult:
         return ShodanHostResult(
             ip=ip, hostnames=[], ports=[], vulns=[], os=None,
             services=[{"error": "SHODAN_API_KEY not set"}],
-        )
+        ).model_dump()
 
     api = shodan.Shodan(api_key)
 
@@ -70,14 +70,14 @@ def shodan_host_lookup(ip: str) -> ShodanHostResult:
             vulns=list(result.get("vulns", [])),
             os=result.get("os"),
             services=services,
-        )
+        ).model_dump()
 
     except shodan.APIError as e:
         logger.error(f"Shodan API error for {ip}: {e}")
         return ShodanHostResult(
             ip=ip, hostnames=[], ports=[], vulns=[], os=None,
             services=[{"error": str(e)}],
-        )
+        ).model_dump()
 
 
 @tool
@@ -95,7 +95,7 @@ def shodan_domain_search(domain: str) -> ShodanSearchResult:
         return ShodanSearchResult(
             domain=domain, total_results=0,
             hosts=[{"error": "SHODAN_API_KEY not set"}],
-        )
+        ).model_dump()
 
     api = shodan.Shodan(api_key)
 
@@ -121,10 +121,10 @@ def shodan_domain_search(domain: str) -> ShodanSearchResult:
             domain=domain,
             total_results=results.get("total", 0),
             hosts=hosts,
-        )
+        ).model_dump()
 
     except shodan.APIError as e:
         logger.error(f"Shodan search error for {domain}: {e}")
         return ShodanSearchResult(
             domain=domain, total_results=0, hosts=[{"error": str(e)}],
-        )
+        ).model_dump()

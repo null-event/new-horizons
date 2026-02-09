@@ -93,10 +93,10 @@ def nmap_scan(targets: list[str]) -> NmapScanResult:
             targets_scanned=len(targets),
             hosts_up=len(host_results),
             results=host_results,
-        )
+        ).model_dump()
 
     except Exception as e:
         logger.error(f"Nmap scan failed: {e}")
         return NmapScanResult(
             targets_scanned=len(targets), hosts_up=0, results=[],
-        )
+        ).model_dump()

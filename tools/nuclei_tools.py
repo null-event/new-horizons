@@ -95,10 +95,10 @@ def nuclei_scan(targets: list[str], tags: list[str]) -> NucleiScanResult:
             total_findings=len(findings),
             findings=findings,
             **severity_counts,
-        )
+        ).model_dump()
 
     except Exception as e:
         logger.error(f"Nuclei scan failed: {e}")
         return NucleiScanResult(
             targets_scanned=len(targets), total_findings=0, findings=[],
-        )
+        ).model_dump()

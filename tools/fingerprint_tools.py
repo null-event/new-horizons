@@ -1,3 +1,4 @@
+import json
 import logging
 
 from langchain_core.tools import tool
@@ -65,11 +66,11 @@ def fingerprint_technology(url: str) -> FingerprintResult:
 
         return FingerprintResult(
             url=url, technologies=technologies, error=result.get("error"),
-        )
+        ).model_dump()
 
     except Exception as e:
         logger.error(f"Fingerprinting failed for {url}: {e}")
-        return FingerprintResult(url=url, technologies=[], error=str(e))
+        return FingerprintResult(url=url, technologies=[], error=str(e)).model_dump()
 
 
 @tool
@@ -89,11 +90,12 @@ def fingerprint_multiple_urls(urls: list[str]) -> BatchFingerprintResult:
     successful = 0
 
     for url in urls:
-        result = fingerprint_technology.invoke(url)
+        raw = fingerprint_technology.invoke(url)
+        result = json.loads(raw) if isinstance(raw, str) else raw
         results.append(result)
-        if not result.error:
+        if not result.get("error"):
             successful += 1
 
     return BatchFingerprintResult(
         total_scanned=len(urls), successful=successful, results=results,
-    )
+    ).model_dump()

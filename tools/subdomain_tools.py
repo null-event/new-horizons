@@ -42,7 +42,7 @@ def enumerate_subdomains(domain: str) -> SubdomainResult:
             subdomains=unique_subs,
             count=len(unique_subs),
             source="subfinder",
-        )
+        ).model_dump()
     except Exception as e:
         logger.error(f"Subdomain enumeration failed: {e}")
         return SubdomainResult(
@@ -50,4 +50,4 @@ def enumerate_subdomains(domain: str) -> SubdomainResult:
             subdomains=[],
             count=0,
             source=f"subfinder (error: {str(e)})",
-        )
+        ).model_dump()
