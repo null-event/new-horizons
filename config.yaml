@@ -5,27 +5,13 @@ llm:
   default_model: "claude-sonnet-4-5-20250929"
 
   agents:
-    coordinator:
-      provider: "anthropic"
-      model: "claude-sonnet-4-5-20250929"
-    recon_agent:
-      provider: "anthropic"
-      model: "claude-haiku-4-5-20251001"
-    shodan_agent:
-      provider: "anthropic"
-      model: "claude-haiku-4-5-20251001"
-    nmap_agent:
-      provider: "anthropic"
-      model: "claude-haiku-4-5-20251001"
-    fingerprint_agent:
-      provider: "anthropic"
-      model: "claude-haiku-4-5-20251001"
-    nuclei_agent:
-      provider: "anthropic"
-      model: "claude-sonnet-4-5-20250929"
-    report_agent:
-      provider: "anthropic"
-      model: "claude-sonnet-4-5-20250929"
+    coordinator: {}
+    recon_agent: {}
+    shodan_agent: {}
+    nmap_agent: {}
+    fingerprint_agent: {}
+    nuclei_agent: {}
+    report_agent: {}
 
   providers:
     anthropic:
